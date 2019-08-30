@@ -1,0 +1,32 @@
+@import 'src/scss/colors';
+
+.page-options {
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.page-button {
+  color: $dove-gray;
+  padding: 5px;
+  position: relative;
+
+  &:hover {
+    color: $tundora;
+    font-weight: 600;
+  }
+
+  &.active-page {
+    color: $tundora;
+    font-weight: 600;
+
+    &::after {
+      background-color: $tundora;
+      border-radius: 8px;
+      bottom: -2px;
+      content: '';
+      height: 3px;
+      position: absolute;
+      width: 10px;
+    }
+  }
+}
