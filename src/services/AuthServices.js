@@ -26,10 +26,4 @@ export const authSetup = async dispatch => {
   dispatch(authActions.init(currentUser));
 };
 
-export const login = () =>
-  // TODO: Implement call to authentication API here
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve({ ok: true, data: { sessionToken: 'token' } });
-    }, 750); // eslint-disable-line no-magic-numbers
-  });
+export const login = values => api.post('/login', values);
