@@ -1,0 +1,17 @@
+@import 'src/scss/colors';
+
+.arrow-button {
+  cursor: initial;
+
+  &.enabled-arrow {
+
+    &:hover {
+      border: 2px solid $dove-gray;
+      cursor: pointer;
+    }
+  }
+}
+
+:disabled {
+  opacity: 0.5;
+}
