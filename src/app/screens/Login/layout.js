@@ -1,56 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { t } from 'i18next';
+import { Field, reduxForm } from 'redux-form';
 
 import InputLabel from '../../components/InputLabel';
-import Routes from '../../../constants/routes';
 
-import { FIELDS } from './constants';
+import { FIELDS, LOGIN_FORM_NAME } from './constants';
 import styles from './styles.module.scss';
 
-function Login({ onEmailChange, onPasswordChange, onLogin }) {
+function Login({ handleSubmit }) {
   return (
-    <form className={`column center full-width m-top-8 ${styles.formContainer}`} onSubmit={onLogin}>
-      <div className="column center m-bottom-3">
-        <h2 className="m-bottom-1">{t('Login:login')}</h2>
-        <h3>{t('Login:loginExplanation')}</h3>
-      </div>
-      <div className={`column m-bottom-2 ${styles.sectionContainer}`}>
-        <InputLabel
+    <div className={`${styles.loginContainer} row middle center`}>
+      <form className={`column middle ${styles.formWrapper}`} onSubmit={handleSubmit}>
+        <h2 className="title1 m-bottom-8 self-center">{t('Login:login')}</h2>
+        <Field
+          component={InputLabel}
           label={t('Login:email')}
           name={FIELDS.email}
           inputId={FIELDS.email}
           dataFor={FIELDS.email}
           inputType="text"
-          inputClassName={`m-bottom-2 full-width ${styles.input}`}
+          inputClassName="m-bottom-3"
           placeholder={t('Login:emailPlaceholder')}
-          handleChange={onEmailChange}
         />
-        <InputLabel
+        <Field
+          component={InputLabel}
           label={t('Login:password')}
           name={FIELDS.password}
           inputId={FIELDS.password}
           dataFor={FIELDS.password}
           inputType="password"
-          inputClassName={`m-bottom-2 full-width ${styles.input}`}
+          inputClassName="m-bottom-6"
           placeholder={t('Login:passwordPlaceholder')}
-          handleChange={onPasswordChange}
         />
-      </div>
-      <div className={`column center ${styles.sectionContainer}`}>
-        <button type="submit" className={`full-width m-bottom-1 ${styles.button}`}>
+        <button type="submit" className="m-bottom-1 button-primary">
           {t('Login:enter')}
         </button>
-        <a href={Routes.RECOVER_PASSWORD}>{t('Login:forgotPassword')}</a>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
 Login.propTypes = {
-  onEmailChange: PropTypes.func.isRequired,
-  onLogin: PropTypes.func.isRequired,
-  onPasswordChange: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired
 };
 
-export default Login;
+export default reduxForm({
+  form: LOGIN_FORM_NAME
+})(Login);
