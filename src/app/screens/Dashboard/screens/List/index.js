@@ -5,6 +5,8 @@ import styles from './styles.module.scss';
 
 import structure from '~constants/structure';
 
+import Paginator from '~components/Paginator';
+
 class List extends Component {
   state = {
     data: {}
@@ -26,6 +28,7 @@ class List extends Component {
             Learn React
           </a>
         </header>
+        <Paginator />
       </div>
     );
   }
