@@ -18,7 +18,7 @@ class List extends Component {
 
   render() {
     return (
-      <div className={styles.app}>
+      <div className={styles.container}>
         <header className={styles.appHeader}>
           <img src={logo} className={styles.appLogo} alt="logo" />
           <p className={styles.text}>{this.state.data.name} list</p>

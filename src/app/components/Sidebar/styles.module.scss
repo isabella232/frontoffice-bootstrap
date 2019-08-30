@@ -1,0 +1,22 @@
+@import 'src/scss/colors';
+
+.sidebar-container {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  max-width: 250px;
+  min-width: 250px;
+  flex-direction: column;
+  padding: 30px 0;
+  background: $tundora;
+}
+
+.model-link {
+  padding: 0 30px;
+  line-height: 30px;
+  color: $wild-sand;
+
+  &:hover {
+    background: $dove-gray;
+  }
+}
