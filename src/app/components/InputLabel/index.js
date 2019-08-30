@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './styles.module.scss';
+
 function InputLabel({
   className,
   textClassName,
@@ -11,21 +13,22 @@ function InputLabel({
   placeholder,
   inputId,
   inputType,
-  handleChange,
+  input,
   disabled
 }) {
   return (
     <div className={`column start ${className}`}>
-      <label className={`${textClassName} m-bottom-1`} htmlFor={dataFor}>
+      <label className={`${textClassName} ${styles.inputLabel} m-bottom-1`} htmlFor={dataFor}>
         {label}
       </label>
       <input
-        className={inputClassName}
+        className={`input ${inputClassName}`}
         name={name}
         placeholder={placeholder}
+        autoComplete="new-password"
         id={inputId}
         type={inputType}
-        onChange={handleChange}
+        {...input}
         disabled={disabled}
       />
     </div>
@@ -41,6 +44,7 @@ InputLabel.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  input: PropTypes.shape({}),
   inputClassName: PropTypes.string,
   placeholder: PropTypes.string,
   textClassName: PropTypes.string

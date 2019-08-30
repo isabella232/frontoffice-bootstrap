@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { actionCreators as authActions } from '~redux/Auth/actions';
 
 import Login from './layout';
 
-class LoginContainer extends Component {
-  handleLogin = () => {
-    // TODO implement function
-  };
-
-  handleEmailChange = () => {
-    // TODO implement function
-  };
-
-  handlePasswordChange = () => {
-    // TODO implement function
-  };
-
-  render() {
-    return (
-      <Login
-        onEmailChange={this.handleEmailChange}
-        onPasswordChange={this.handlePasswordChange}
-        onLogin={this.handleLogin}
-      />
-    );
-  }
+function LoginContainer({ onSubmit }) {
+  return <Login onSubmit={onSubmit} />;
 }
 
-export default LoginContainer;
+LoginContainer.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  loading: state.auth.loading,
+  error: state.auth.error
+});
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: values => dispatch(authActions.login(values))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginContainer);
