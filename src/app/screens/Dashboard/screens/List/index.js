@@ -5,6 +5,10 @@ import styles from './styles.module.scss';
 
 import structure from '~constants/structure';
 
+import Paginator from '~components/Paginator';
+
+import Table from '~components/Table';
+
 class List extends Component {
   state = {
     data: {}
@@ -15,6 +19,8 @@ class List extends Component {
       data: structure.find(model => this.props.match.path.slice(1) === model.endpoint)
     });
   }
+
+  // TODO: use endpoint to get data and format headers before sending to Table component
 
   render() {
     return (

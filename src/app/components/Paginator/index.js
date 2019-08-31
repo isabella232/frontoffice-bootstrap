@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { number, func, string } from 'prop-types';
 
-import { DEFAULT_CURRENT_PAGE, DEFAULT_TOTAL_PAGES, PAGING_COMPONENTS, DEFAULT_MAX_PAGES } from './constants';
+import { DEFAULT_CURRENT_PAGE, DEFAULT_TOTAL_PAGES, PAGING_COMPONENTS } from './constants';
 
 class Paginator extends Component {
   handleChangePage = newPage => this.props.onPageChange(newPage);
 
   render() {
-    const { currentPage, totalPages, nextPage, paginatorClassName, maxPages } = this.props;
+    const { currentPage, totalPages, nextPage, paginatorClassName } = this.props;
 
     return (
       !!totalPages && (
@@ -22,7 +22,6 @@ class Paginator extends Component {
               nextPage={nextPage}
               text={text}
               className={className}
-              maxPages={maxPages}
             />
           ))}
         </div>
@@ -34,7 +33,6 @@ class Paginator extends Component {
 Paginator.propTypes = {
   onPageChange: func.isRequired,
   currentPage: number,
-  maxPages: number,
   nextPage: number,
   paginatorClassName: string,
   totalPages: number
@@ -42,7 +40,6 @@ Paginator.propTypes = {
 
 Paginator.defaultProps = {
   currentPage: DEFAULT_CURRENT_PAGE,
-  maxPages: DEFAULT_MAX_PAGES,
   paginatorClassName: '',
   totalPages: DEFAULT_TOTAL_PAGES
 };
