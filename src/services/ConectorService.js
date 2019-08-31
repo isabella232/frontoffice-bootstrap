@@ -1,6 +1,6 @@
 import api from '~config/api';
 
-export const getList = (resource, params) => api.get(`/${resource}`, params);
+export const getList = ({ resource, page, limit }) => api.get(`/${resource}`, { page, limit });
 
 export const getDetail = ({ resource, id }) => api.get(`/${resource}/${id}`);
 

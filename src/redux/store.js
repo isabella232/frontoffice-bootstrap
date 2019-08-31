@@ -12,6 +12,7 @@ import { fetchMiddleware } from 'redux-recompose';
 import { reducer as auth } from './Auth/reducer';
 import modal from './modal/reducer';
 import resource from './resource/reducer';
+import paginator from './Paginator/reducer';
 
 export const history = createBrowserHistory();
 
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   auth,
   form,
   resource,
+  paginator,
   modal,
   router: connectRouter(history)
 });
