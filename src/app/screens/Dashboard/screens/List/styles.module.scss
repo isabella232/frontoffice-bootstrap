@@ -3,3 +3,11 @@
 .link {
   align-self: flex-end;
 }
+
+.headers {
+  grid-template-columns: repeat(7, 200px);
+}
+
+.row-link {
+  grid-template-columns: repeat(7, 200px);
+}
