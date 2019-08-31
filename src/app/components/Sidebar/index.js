@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import structure from '~constants/structure';
 
@@ -9,9 +9,14 @@ function Sidebar() {
   return (
     <div className={styles.sidebarContainer}>
       {structure.map(model => (
-        <Link key={model.name} to={model.endpoint} className={styles.modelLink}>
-          {model.name}
-        </Link>
+        <NavLink
+          key={model.name}
+          to={`/${model.endpoint}`}
+          className={styles.modelLink}
+          activeClassName={styles.activeModel}
+        >
+          {model.name.charAt(0).toUpperCase() + model.name.slice(1)}
+        </NavLink>
       ))}
     </div>
   );
