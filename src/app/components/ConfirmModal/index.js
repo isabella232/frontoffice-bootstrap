@@ -11,8 +11,8 @@ function ConfirmModal({ open, toggleCancelModal, callBack }) {
   return (
     <Modal open={open} onClose={toggleCancelModal} center>
       <div className="m-top-3 column">
-        <h2 className="title">¿Estás seguro que querés cancelar esta acción?</h2>
-        <button type="button" onClick={callBack}>
+        <h2 className="subtitle m-bottom-3">¿Estás seguro que querés cancelar esta acción?</h2>
+        <button type="button" onClick={callBack} className="button-primary">
           Confirmar
         </button>
       </div>

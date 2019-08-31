@@ -7,12 +7,12 @@ import { actionCreators as modalActions } from '~redux/modal/actions';
 
 import Routes from '~constants/routes';
 
-function ConfirmModal({ open, toggleDeletemodal, callBack }) {
+function DeleteModal({ open, toggleDeletemodal, callBack }) {
   return (
     <Modal open={open} onClose={toggleDeletemodal} center>
       <div className="m-top-3 column">
-        <h2 className="title">¿Estás seguro que quieres borrar este elemento?</h2>
-        <button type="button" onClick={callBack}>
+        <h2 className="subtitle m-bottom-2">¿Estás seguro que quieres borrar este elemento?</h2>
+        <button type="button" onClick={callBack} className="button-primary">
           Confirmar
         </button>
       </div>
@@ -31,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(ConfirmModal);
+)(DeleteModal);
