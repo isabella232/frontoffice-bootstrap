@@ -45,7 +45,7 @@ function Dashboard({ cancelModal, deleteModal, ...props }) {
       <DeleteModal open={deleteModal} />
       <div className="column item-1">
         <Navbar />
-        <main className={`${styles.container} item-1`}>
+        <main className={styles.container}>
           <Switch>
             <GenericRouter />
             <Route exact path={Routes.HOME} component={List} />
