@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { any, string } from 'prop-types';
 import { Link } from 'react-router-dom';
+import ReactSVG from 'react-svg';
 
 import { actionType, columnsType, configType } from '~components/Table/propTypes';
 
@@ -19,7 +20,10 @@ const ActionComponent = props => {
       <img className={styles.actionIcon} src={Edit} alt="edit" />
     </Link>
     <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className={`button-secondary ${styles.iconButton}`}>
-      <img className={styles.actionIcon} src={Trash} alt="delete" />
+      <ReactSVG src={Trash} alt="delete" beforeInjection={svg => {
+        svg.classList.add(styles.actionIcon);
+        svg.classList.add("trash-ic")
+      }}/>
     </Link>
   </div>)
 }
