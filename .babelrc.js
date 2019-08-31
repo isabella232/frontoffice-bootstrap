@@ -12,8 +12,8 @@ module.exports = {
           "~constants": "./src/constants",
           "~redux": "./src/redux",
           "~services": "./src/services",
-          "~utils": "./src/utils",
-          "~assets": "./src/app/assets"
+          '~assets': './src/app/assets',
+          "~utils": "./src/utils"
         }
       }
     ]
