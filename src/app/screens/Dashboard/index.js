@@ -5,26 +5,33 @@ import Routes from '../../../constants/routes';
 
 import structure from '~constants/structure';
 
+import Sidebar from '~components/Sidebar';
+
 const List = lazy(() => import('./screens/List'));
 const Detail = lazy(() => import('./screens/Detail'));
 const Create = lazy(() => import('./screens/Create'));
 const Edit = lazy(() => import('./screens/Edit'));
 
-const routes = structure.map(model => model.endpoint);
+const GenericRouter = () =>
+  structure.map(model => (
+    <Switch key={model.endpoint}>
+      <Route exact path={`/${model.endpoint}`} component={List} />
+      <Route exact path={`/${model.endpoint}/new`} component={Create} />
+      <Route path={`/${model.endpoint}/:id`} component={Detail} />
+      <Route exact path={`/${model.endpoint}/:id/edit`} component={Edit} />
+    </Switch>
+  ));
+
 function Dashboard() {
   return (
-    <Switch>
-      {routes.map(route => (
-        <>
-          <Route key={`${route}-list`} exact path={`/${route}`} component={List} />
-          <Route key={`${route}-create`} exact path={`/${route}/new`} component={Create} />
-          <Route key={`${route}-detail`} path={`/${route}/:id`} component={Detail} />
-          <Route key={`${route}-edit`} exact path={`/${route}/:id/edit`} component={Edit} />
-        </>
-      ))}
-      <Route exact path={Routes.HOME} component={List} />
-      <Route component={<Redirect to={Routes.HOME} />} />
-    </Switch>
+    <div className="row">
+      <Sidebar />
+      <Switch>
+        <GenericRouter />
+        <Route exact path={Routes.HOME} component={List} />
+        <Route component={<Redirect to={Routes.HOME} />} />
+      </Switch>
+    </div>
   );
 }
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import logo from './assets/logo.svg';
 import styles from './styles.module.scss';
 
 import structure from '~constants/structure';
+
+import CreationContainer from './layout';
 
 class Create extends Component {
   state = {
@@ -16,18 +17,11 @@ class Create extends Component {
     });
   }
 
+  // TODO integrate with api sauce
+  handleSubmit = values => {};
+
   render() {
-    return (
-      <div className={styles.app}>
-        <header className={styles.appHeader}>
-          <img src={logo} className={styles.appLogo} alt="logo" />
-          <p className={styles.text}>{this.state.data.name} creation</p>
-          <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    return <CreationContainer modelData={this.state.data} onSubmit={this.handleSubmit} />;
   }
 }
 export default Create;

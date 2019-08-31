@@ -1,0 +1,31 @@
+@import 'src/scss/colors';
+
+.sidebar-container {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  max-width: 250px;
+  min-width: 250px;
+  flex-direction: column;
+  padding: 30px 0;
+  background: desaturate(darken($primary-color, 70%), 50%);
+}
+
+.model-link  {
+  padding: 0 30px;
+  line-height: 40px;
+  line-height: 40px;
+  color: rgba($primary-color, 0.8);
+
+  &:hover {
+    background: rgba($primary-color, 0.05);
+  }
+
+  &.active-model {
+    color: $primary-color;
+    font-weight: 400;
+    background: rgba($primary-color, 0.2);
+  }
+}
+
+
