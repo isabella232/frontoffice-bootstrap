@@ -6,8 +6,8 @@
   &.enabled-arrow {
 
     &:hover {
-      border: 2px solid $dove-gray;
       cursor: pointer;
+      color: desaturate(darken($primary-color, 25%), 40%);
     }
   }
 }
