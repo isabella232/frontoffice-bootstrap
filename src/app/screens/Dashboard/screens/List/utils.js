@@ -4,8 +4,6 @@ import { stripObjectBasedOnKeyArray } from '~utils/general';
 
 import { formatBodies } from '~components/Table/utils';
 
-import Routes from '~constants/routes';
-
 import styles from './styles.module.scss';
 
 export const parseColumns = ({ columns, baseColumns }) =>
@@ -15,15 +13,15 @@ export const parseColumns = ({ columns, baseColumns }) =>
     baseArray: baseColumns
   });
 
-export const parseList = postulated => {
+export const parseList = (list, endpoint) => {
   const bodies = formatBodies({
-    bodies: postulated,
+    bodies: list,
     options: {
       rowFormatter: row => {
         const newRowBody = {
           id: row.id,
           data: row,
-          url: `${Routes.PRODUCTS}/${row.id}`,
+          url: `/${endpoint}/${row.id}`,
           config: {
             styles: { rowLink: styles.rowLink }
           }
