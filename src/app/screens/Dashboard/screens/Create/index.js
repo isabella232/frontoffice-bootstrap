@@ -28,17 +28,12 @@ class Create extends Component {
     this.props.dispatch(modalActions.toggleCancelModal());
   };
 
-  onDelete = () => {
-    this.props.dispatch(modalActions.toggleDeleteModal());
-  };
-
   render() {
     return (
       <CreationContainer
         modelData={this.state.data}
         onSubmit={this.handleSubmit}
         handleCancel={this.onCancel}
-        handleDelete={this.onDelete}
       />
     );
   }
