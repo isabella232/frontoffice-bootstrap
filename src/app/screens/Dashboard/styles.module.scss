@@ -4,4 +4,5 @@
   width: 100%;
   padding: 30px;
   background: rgba(desaturate(lighten($primary-color, 15%), 70%), 0.8);
+  position: relative;
 }

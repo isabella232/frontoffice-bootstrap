@@ -46,20 +46,29 @@ class Edit extends Component {
   };
 
   render() {
-    return Object.keys(this.props.resource).length ? (
-      <EditContainer
-        modelData={this.state.data}
-        onSubmit={this.handleSubmit}
-        initialValues={this.props.resource}
-        handleCancel={this.onCancel}
-        handleDelete={this.onDelete}
-      />
-    ) : null;
+    return (
+      this.props.loading ? (
+        <div className="ball-triangle-path">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      ) : (
+        <EditContainer
+          modelData={this.state.data}
+          onSubmit={this.handleSubmit}
+          initialValues={this.props.resource}
+          handleCancel={this.onCancel}
+          handleDelete={this.onDelete}
+        />
+      )
+    );
   }
 }
 
 const mapStateToProps = store => ({
-  resource: store.resource.resource
+  resource: store.resource.resource,
+  loading: store.resource.resourceLoading
 });
 
 export default connect(mapStateToProps)(Edit);
