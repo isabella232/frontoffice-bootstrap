@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { t } from 'i18next';
+import ReactSVG from 'react-svg';
 
 import leftArrow from '~assets/left-arrow.svg';
 
@@ -11,7 +12,9 @@ function CreationLayout({ modelData, handleSubmit, handleCancel }) {
     <form onSubmit={handleSubmit} className={styles.container}>
       <div className="row middle start form-header">
         <button onClick={handleCancel} type="button" className="back-button m-right-2">
-          <img src={leftArrow} className="back-ic" />
+          <ReactSVG src={leftArrow}  beforeInjection={svg => {
+              svg.classList.add("back-ic")
+            }} />
         </button>
         <h1 className="title2 capitalize">
           {t('Create:resourceCreation', { resource: modelData.name })}

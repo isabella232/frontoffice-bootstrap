@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ReactSVG from 'react-svg';
 
 import icLogout from '~assets/ic_logout.svg';
 
@@ -11,7 +12,9 @@ function Navbar({ currentUser = { name: 'Jorge' } }) {
     <header className={`row middle end ${styles.header}`}>
       <h6 className={`m-right-2 ${styles.userName}`}>Hi {currentUser.name}!</h6>
       <button type="button">
-        <img src={icLogout} alt="logout" />
+        <ReactSVG src={icLogout} beforeInjection={svg => {
+          svg.classList.add('logout-icon')
+        }} />
       </button>
     </header>
   );
