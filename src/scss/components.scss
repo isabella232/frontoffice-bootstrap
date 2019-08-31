@@ -34,11 +34,13 @@
   height: 40px;
   padding: 10px 40px;
   border-radius: 4px;
-  transition: border-color, color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
-  &:hover {
-    border-color: darken($primary-color, 5%);
-    color: darken($primary-color, 5%);
+  &:hover,
+  &:focus {
+    border-color: darken($primary-color, 10%);
+    color: darken($primary-color, 10%);
+    background: rgba(lighten($primary-color, 5%), 0.2);
   }
 }
 
@@ -88,4 +90,13 @@
 .form-actions {
   padding-top: 20px;
   border-top: 1px solid $gray-1;
+}
+
+.modal-close {
+  fill: $gray-2;
+
+  &:hover,
+  &:focus {
+    fill: $primary-color;
+  }
 }
