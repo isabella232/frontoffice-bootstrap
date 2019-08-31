@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { t } from 'i18next';
 
 import styles from './styles.module.scss';
 
@@ -26,9 +27,9 @@ class List extends Component {
     return (
       <div className={styles.container}>
         <div className={`row space-between middle ${styles.listHeader}`}>
-          <h1 className="title2">Listado de {this.state.data.name}</h1>
+          <h1 className="title2">{t('List:componentList', { component: this.state.data.name })}</h1>
           <Link to={`${this.props.match.path}/new`} className={`${styles.link} button-primary`}>
-            Crear
+            {t('List:create')}
           </Link>
         </div>
       </div>

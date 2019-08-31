@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { t } from 'i18next';
 
 import leftArrow from '~assets/left-arrow.svg';
 
@@ -13,10 +14,12 @@ function CreationLayout({ modelData, handleSubmit, handleCancel, handleDelete })
           <button onClick={handleCancel} type="button">
             <img src={leftArrow} height="20px" />
           </button>
-          <h1 className="title m-bottom-1 m-left-1 capitalize">{modelData.name} creation</h1>
+          <h1 className="title m-bottom-1 m-left-1 capitalize">
+            {t('Create:resourceCreation', { resource: modelData.name })}
+          </h1>
         </div>
         <button type="button" className="m-right-1 button-secondary m-bottom-1" onClick={handleDelete}>
-          Borrar
+          {t('Create:delete')}
         </button>
       </div>
       {modelData.attributes &&
@@ -31,10 +34,10 @@ function CreationLayout({ modelData, handleSubmit, handleCancel, handleDelete })
         ))}
       <div className="full-width row end">
         <button type="button" className="m-right-1 m-top-1 button-secondary" onClick={handleCancel}>
-          Cancelar
+          {t('Create:cancel')}
         </button>
         <button type="submit" className="m-right-1 m-top-1 button-primary">
-          Guardar
+          {t('Create:save')}
         </button>
       </div>
     </form>
