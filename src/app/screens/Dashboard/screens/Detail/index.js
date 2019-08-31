@@ -21,7 +21,7 @@ class Detail extends Component {
   componentDidMount() {
     const resourceName = this.props.match.path.split('/')[1];
     this.props.dispatch(
-      resourceActions.getResource({ resource: resourceName, id: this.props.match.params.id })
+      resourceActions.getResourceDetail({ resource: resourceName, id: this.props.match.params.id })
     );
     this.setState({
       data: structure.find(model => resourceName === model.endpoint)
