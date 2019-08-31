@@ -39,3 +39,5 @@ export const parseList = (list, endpoint) => {
 
   return bodies;
 };
+
+export const getVisibleColumns = columns => (columns ? columns.map(item => item.name) : []);
