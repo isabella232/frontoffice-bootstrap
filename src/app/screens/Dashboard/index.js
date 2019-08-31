@@ -1,11 +1,16 @@
 import React, { lazy } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Routes from '../../../constants/routes';
 
 import structure from '~constants/structure';
 
 import Sidebar from '~components/Sidebar';
+
+import ConfirmModal from '~components/ConfirmModal';
+
+import DeleteModal from '~components/DeleteModal';
 
 const List = lazy(() => import('./screens/List'));
 const Detail = lazy(() => import('./screens/Detail'));
@@ -22,10 +27,12 @@ const GenericRouter = () =>
     </Switch>
   ));
 
-function Dashboard() {
+function Dashboard({ cancelModal, deleteModal }) {
   return (
     <div className="row">
       <Sidebar />
+      <ConfirmModal open={cancelModal} />
+      <DeleteModal open={deleteModal} />
       <Switch>
         <GenericRouter />
         <Route exact path={Routes.HOME} component={List} />
@@ -35,4 +42,9 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+const mapStateToProps = store => ({
+  cancelModal: store.modal.cancelModal,
+  deleteModal: store.modal.deleteModal
+});
+
+export default connect(mapStateToProps)(Dashboard);

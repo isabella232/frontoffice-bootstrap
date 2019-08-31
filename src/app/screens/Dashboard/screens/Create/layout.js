@@ -3,12 +3,12 @@ import { Field, reduxForm } from 'redux-form';
 
 import styles from './styles.module.scss';
 
-function CreationLayout({ modelData, handleSubmit }) {
+function CreationLayout({ modelData, handleSubmit, handleCancel, handleDelete }) {
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
       <div className="row full-width space-between">
         <h1 className="title m-bottom-1">{modelData.name} Creation</h1>
-        <button type="button" className="m-right-1">
+        <button type="button" className="m-right-1" onClick={handleDelete}>
           Borrar
         </button>
       </div>
@@ -23,7 +23,7 @@ function CreationLayout({ modelData, handleSubmit }) {
           />
         ))}
       <div className="full-width row end">
-        <button type="button" className="m-right-1 m-top-1">
+        <button type="button" className="m-right-1 m-top-1" onClick={handleCancel}>
           Cancelar
         </button>
         <button type="submit" className="m-right-1 m-top-1">
