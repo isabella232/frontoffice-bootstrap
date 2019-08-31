@@ -4,7 +4,8 @@ import { actions } from './actions';
 
 const initialState = {
   deleteModal: false,
-  cancelModal: false
+  cancelModal: false,
+  deleteId: null
 };
 
 const reducerDescription = {
@@ -14,9 +15,10 @@ const reducerDescription = {
       ...state,
       cancelModal: !state.cancelModal
     }),
-    [actions.TOGGLE_DELETE_MODAL]: state => ({
+    [actions.TOGGLE_DELETE_MODAL]: (state, action) => ({
       ...state,
-      deleteModal: !state.deleteModal
+      deleteModal: !state.deleteModal,
+      deleteId: action.payload?.id
     })
   }
 };

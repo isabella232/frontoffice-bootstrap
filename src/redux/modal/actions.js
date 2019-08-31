@@ -6,8 +6,9 @@ export const actions = createTypes(
 );
 
 export const actionCreators = {
-  toggleDeleteModal: () => ({
-    type: actions.TOGGLE_DELETE_MODAL
+  toggleDeleteModal: id => ({
+    type: actions.TOGGLE_DELETE_MODAL,
+    payload: id
   }),
   toggleCancelModal: () => ({
     type: actions.TOGGLE_CANCEL_MODAL
