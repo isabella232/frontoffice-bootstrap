@@ -15,11 +15,11 @@ import styles from '~components/Table/styles.module.scss';
 
 const ActionComponent = props => {
   return (<div className="row">
-    <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className="button-primary">
-    <img src={Edit} />
+    <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className={`button-primary ${styles.iconButton} m-right-2`}>
+      <img className={styles.actionIcon} src={Edit} alt="edit" />
     </Link>
-    <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className="button-secondary">
-    <img src={Trash} />
+    <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className={`button-secondary ${styles.iconButton}`}>
+      <img className={styles.actionIcon} src={Trash} alt="delete" />
     </Link>
   </div>)
 }
@@ -47,7 +47,7 @@ function Row({ action, config, columns, data, url }) {
         })}
       </Link>
       {ActionComponent ? (
-        <Cell key={`${data.id}-actions`} className={classNames(styles.cell, configStyles.cell)}>
+        <Cell key={`${data.id}-actions`} className={classNames(styles.cell, configStyles.cell, styles.actionCell)}>
           {ActionComponent ? <ActionComponent row={data} /> : null}
         </Cell>
       ) : null}

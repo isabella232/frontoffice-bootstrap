@@ -46,3 +46,21 @@
   padding: 10px;
   min-width: 100px;
 }
+
+.icon-button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .action-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.action-cell {
+  width: 100px;
+}
