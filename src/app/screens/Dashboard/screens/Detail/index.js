@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { t } from 'i18next';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import structure from '~constants/structure';
 
@@ -47,14 +48,23 @@ class Detail extends Component {
               {t('Detail:resourceDetail', { resource: this.state.data.name })}
             </h1>
           </div>
-          <button type="button" className="m-right-1 button-secondary m-bottom-1" onClick={this.handleDelete}>
-            {t('Create:delete')}
-          </button>
+          <div>
+            <button
+              type="button"
+              className="m-right-1 button-secondary m-bottom-1"
+              onClick={this.handleDelete}
+            >
+              {t('Detail:delete')}
+            </button>
+            <Link to={`${this.props.match.url}/edit`} className="m-right-1 button-primary m-bottom-1">
+              {t('Detail:edit')}
+            </Link>
+          </div>
         </div>
         {this.state.data.attributes?.map(attribute => (
           <div className="row" key={attribute.name}>
-            <span>{attribute.name}:</span>
-            <span>{}</span>
+            <span className="bold m-right-1">{attribute.name}:</span>
+            <span>{this.props.resource[attribute.name]}</span>
           </div>
         ))}
       </div>
@@ -62,4 +72,8 @@ class Detail extends Component {
   }
 }
 
-export default connect()(Detail);
+const mapStateToProps = store => ({
+  resource: store.resource.resource
+});
+
+export default connect(mapStateToProps)(Detail);

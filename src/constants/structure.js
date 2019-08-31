@@ -2,18 +2,19 @@ import InputLabel from '~components/InputLabel';
 
 export default [
   {
-    name: 'sports',
-    endpoint: 'sports',
+    name: 'products',
+    endpoint: 'products',
     attributes: [
       {
         name: 'id',
         type: 'text',
-        placeholder: 'Sport name',
         edit: false,
         create: false
       },
       {
         name: 'name',
+        type: 'text',
+        placeholder: 'Product name',
         edit: true,
         create: true,
         component: InputLabel,
@@ -22,7 +23,7 @@ export default [
           name: 'name',
           inputId: 'name',
           dataFor: 'name',
-          inputType: "text"
+          inputType: 'text'
         }
       },
       {
@@ -35,7 +36,7 @@ export default [
           name: 'name',
           inputId: 'name',
           dataFor: 'name',
-          inputType: "text"
+          inputType: 'text'
         }
       },
       {
@@ -48,7 +49,7 @@ export default [
           name: 'name',
           inputId: 'name',
           dataFor: 'name',
-          inputType: "text"
+          inputType: 'text'
         }
       },
       {
@@ -61,20 +62,22 @@ export default [
           name: 'name',
           inputId: 'name',
           dataFor: 'name',
-          inputType: "text"
+          inputType: 'text'
         }
       },
       {
-        name: 'location',
+        name: 'description',
+        type: 'text',
+        placeholder: 'Product description',
         edit: true,
         create: true,
         component: InputLabel,
         componentAttributes: {
-          label: 'location',
-          name: 'location',
-          inputId: 'location',
-          dataFor: 'location',
-          inputType: "text"
+          label: 'description',
+          name: 'description',
+          inputId: 'description',
+          dataFor: 'description',
+          inputType: 'text'
         }
       }
     ]

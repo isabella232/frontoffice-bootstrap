@@ -5,6 +5,8 @@ import structure from '~constants/structure';
 
 import { actionCreators as modalActions } from '~redux/modal/actions';
 
+import { actionCreators as resourceActions } from '~redux/resource/actions';
+
 import CreationContainer from './layout';
 
 class Create extends Component {
@@ -18,8 +20,9 @@ class Create extends Component {
     });
   }
 
-  // TODO integrate with api sauce
-  handleSubmit = values => {};
+  handleSubmit = body => {
+    this.props.dispatch(resourceActions.createResource({ resource: this.state.data.name, body }));
+  };
 
   onCancel = () => {
     this.props.dispatch(modalActions.toggleCancelModal());

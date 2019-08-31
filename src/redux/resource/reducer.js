@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const reducerDescription = {
-  primaryActions: [actions.GET_RESOURCE],
+  primaryActions: [actions.GET_RESOURCE, actions.CREATE_RESOURCE],
   override: {}
 };
 
