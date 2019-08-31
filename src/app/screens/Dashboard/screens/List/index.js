@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { t } from 'i18next';
 import { connect } from 'react-redux';
-import { arrayOf, bool, any, number } from 'prop-types';
+import { arrayOf, bool, any, number, func } from 'prop-types';
 
 import styles from './styles.module.scss';
 
 import { actionCreators as resourceActions } from '~redux/resource/actions';
+
+import { actionCreators as paginatorActions } from '~redux/Paginator/actions';
 
 import structure from '~constants/structure';
 
@@ -14,7 +16,7 @@ import Paginator from '~components/Paginator';
 
 import Table from '~components/Table';
 
-import { TABLE_HEADERS, BASE_COLUMNS, DEFAULT_PAGE, DEFAULT_LIMIT } from './constants';
+import { TABLE_HEADERS, BASE_COLUMNS, DEFAULT_LIMIT } from './constants';
 import { parseColumns, parseList } from './utils';
 
 class List extends Component {
@@ -31,9 +33,11 @@ class List extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.data !== this.state.data) {
       // TODO: send  current page
-      this.props.getResource(this.state.data.endpoint, DEFAULT_PAGE, DEFAULT_LIMIT);
+      this.props.getResource(this.state.data.endpoint, this.props.currentPage, DEFAULT_LIMIT);
     }
   }
+
+  handlePageChange = newPage => this.props.setCurrentPage(newPage);
 
   render() {
     const { list, listError, loading, currentPage, totalPages, nextPage } = this.props;
@@ -55,13 +59,20 @@ class List extends Component {
           loading={loading}
           config={{ styles: { headers: styles.headers } }}
         />
-        <Paginator currentPage={currentPage} totalPages={totalPages} nextPage={nextPage} />
+        <Paginator
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={this.handlePageChange}
+          nextPage={nextPage}
+        />
       </>
     );
   }
 }
 
 List.propTypes = {
+  getResource: func.isRequired,
+  setCurrentPage: func.isRequired,
   currentPage: number,
   list: arrayOf(any),
   listError: bool,
@@ -82,7 +93,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getResource: (resource, page, limit) => dispatch(resourceActions.getResource(resource, page, limit))
+  getResource: (resource, page, limit) => dispatch(resourceActions.getResource(resource, page, limit)),
+  setCurrentPage: newPage => dispatch(paginatorActions.setCurrentPage(newPage))
 });
 
 export default connect(
