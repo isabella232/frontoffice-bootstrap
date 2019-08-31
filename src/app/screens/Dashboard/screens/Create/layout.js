@@ -9,37 +9,34 @@ import styles from './styles.module.scss';
 function CreationLayout({ modelData, handleSubmit, handleCancel, handleDelete }) {
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
-      <div className="row full-width space-between middle">
-        <div className="row">
-          <button onClick={handleCancel} type="button">
-            <img src={leftArrow} height="20px" />
-          </button>
-          <h1 className="title m-bottom-1 m-left-1 capitalize">
-            {t('Create:resourceCreation', { resource: modelData.name })}
-          </h1>
-        </div>
-        <button type="button" className="m-right-1 button-secondary m-bottom-1" onClick={handleDelete}>
-          {t('Create:delete')}
+      <div className="row middle form-header">
+        <button onClick={handleCancel} type="button" className="back-button m-right-2">
+          <img src={leftArrow} className="back-ic" />
         </button>
+        <h1 className="title2 capitalize m-right-auto">
+          {t('Create:resourceCreation', { resource: modelData.name })}
+        </h1>
+        <button type="button" className="button-secondary" onClick={handleDelete}>{t('Create:delete')}</button>
       </div>
-      {modelData.attributes &&
-        modelData.attributes
-          .filter(attribute => attribute.create)
-          .map(attribute => (
-            <Field
-              key={attribute.name}
-              className="input"
-              component="input"
-              placeholder={attribute.name}
-              {...attribute}
-            />
-          ))}
-      <div className="full-width row end">
-        <button type="button" className="m-right-1 m-top-1 button-secondary" onClick={handleCancel}>
-          {t('Create:cancel')}
-        </button>
-        <button type="submit" className="m-right-1 m-top-1 button-primary">
+      <div className="form-body">
+        {modelData.attributes &&
+          modelData.attributes
+            .filter(attribute => attribute.create)
+            .map(attribute => (
+              <Field
+                key={attribute.name}
+                className="form-field m-bottom-3"
+                component={attribute.component}
+                {...attribute.componentAttributes}
+              />
+            ))}
+      </div>
+      <div className="row form-actions">
+        <button type="submit" className="m-right-2 button-primary">
           {t('Create:save')}
+        </button>
+        <button type="button" className="button-secondary" onClick={handleCancel}>
+          {t('Create:cancel')}
         </button>
       </div>
     </form>

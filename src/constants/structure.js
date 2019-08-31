@@ -1,3 +1,5 @@
+import InputLabel from '~components/InputLabel';
+
 export default [
   {
     name: 'sports',
@@ -12,17 +14,68 @@ export default [
       },
       {
         name: 'name',
-        type: 'text',
-        placeholder: 'Sport name',
         edit: true,
-        create: true
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: "text"
+        }
+      },
+      {
+        name: 'name',
+        edit: true,
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: "text"
+        }
+      },
+      {
+        name: 'name',
+        edit: true,
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: "text"
+        }
+      },
+      {
+        name: 'name',
+        edit: true,
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: "text"
+        }
       },
       {
         name: 'location',
-        type: 'text',
-        placeholder: 'sport location',
         edit: true,
-        create: true
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'location',
+          name: 'location',
+          inputId: 'location',
+          dataFor: 'location',
+          inputType: "text"
+        }
       }
     ]
   },
