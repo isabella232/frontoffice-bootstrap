@@ -12,7 +12,10 @@ import Routes from '~constants/routes';
 import { formatPaging } from './utils';
 
 export const actions = createTypes(
-  completeTypes(['GET_RESOURCE', 'GET_RESOURCE_DETAIL', 'DELETE_RESOURCE', 'EDIT_RESOURCE'], []),
+  completeTypes(
+    ['GET_RESOURCE', 'GET_RESOURCE_DETAIL', 'DELETE_RESOURCE', 'EDIT_RESOURCE', 'CREATE_RESOURCE'],
+    []
+  ),
   '@@RESOURCE'
 );
 
