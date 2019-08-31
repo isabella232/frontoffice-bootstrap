@@ -14,12 +14,12 @@ const Edit = lazy(() => import('./screens/Edit'));
 
 const GenericRouter = () =>
   structure.map(model => (
-    <>
-      <Route key={`${model.endpoint}list`} exact path={`/${model.endpoint}`} component={List} />
-      <Route key={`${model.endpoint}create`} exact path={`/${model.endpoint}/new`} component={Create} />
-      <Route key={`${model.endpoint}detail`} path={`/${model.endpoint}/:id`} component={Detail} />
-      <Route key={`${model.endpoint}edit`} exact path={`/${model.endpoint}/:id/edit`} component={Edit} />
-    </>
+    <Switch key={model.endpoint}>
+      <Route exact path={`/${model.endpoint}`} component={List} />
+      <Route exact path={`/${model.endpoint}/new`} component={Create} />
+      <Route path={`/${model.endpoint}/:id`} component={Detail} />
+      <Route exact path={`/${model.endpoint}/:id/edit`} component={Edit} />
+    </Switch>
   ));
 
 function Dashboard() {
