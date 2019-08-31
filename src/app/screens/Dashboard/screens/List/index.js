@@ -7,6 +7,8 @@ import structure from '~constants/structure';
 
 import Paginator from '~components/Paginator';
 
+import Table from '~components/Table';
+
 class List extends Component {
   state = {
     data: {}
@@ -18,6 +20,8 @@ class List extends Component {
     });
   }
 
+  // TODO: use endpoint to get data and format headers before sending to Table component
+
   render() {
     return (
       <div className={styles.app}>
@@ -28,7 +32,6 @@ class List extends Component {
             Learn React
           </a>
         </header>
-        <Paginator />
       </div>
     );
   }

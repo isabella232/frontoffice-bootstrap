@@ -33,7 +33,6 @@ class Paginator extends Component {
 Paginator.propTypes = {
   onPageChange: func.isRequired,
   currentPage: number,
-  maxPages: number,
   nextPage: number,
   paginatorClassName: string,
   totalPages: number
