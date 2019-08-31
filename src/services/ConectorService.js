@@ -8,4 +8,4 @@ export const createResource = ({ resource, body }) => api.post(`/${resource}`, b
 
 export const editResource = (resource, body) => api.put(`/${resource}/${body.id}`, body);
 
-export const deleteResource = (resource, id) => api.delete(`/${resource}/${id}`);
+export const deleteResource = ({ resource, id }) => api.delete(`/${resource}/${id}`);
