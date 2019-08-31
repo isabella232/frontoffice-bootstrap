@@ -1,6 +1,24 @@
-.container {
-  height: 100vh;
-  width: 100%;
+@import 'src/scss/colors';
+
+.detail-body {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.detail-row:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.detail-field-key,
+.detail-field-value {
+  font-size: 18px;
+}
+
+.detail-field-key {
+  color: desaturate(darken($primary-color, 25%), 50%)
+}
+
+.detail-field-value {
+  color: $gray-4;
 }
