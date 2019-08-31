@@ -7,10 +7,26 @@ import { actionType, columnsType, configType } from '~components/Table/propTypes
 
 import Cell from '~components/Table/components/Cell';
 
+import Routes from '~constants/routes';
+import Trash from '~assets/trash.svg';
+import Edit from '~assets/edit.svg';
+
 import styles from '~components/Table/styles.module.scss';
 
+const ActionComponent = props => {
+  return (<div className="row">
+    <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className="button-primary">
+    <img src={Edit} />
+    </Link>
+    <Link to={window.location.pathname +'/'+ props.row.id+'/edit'} className="button-secondary">
+    <img src={Trash} />
+    </Link>
+  </div>)
+}
+
+
 function Row({ action, config, columns, data, url }) {
-  const { component: ActionComponent, props: actionComponentProps } = action;
+  const {  props: actionComponentProps } = action;
   const { styles: configStyles = {} } = config;
   return (
     <div className={classNames(styles.rowContainer, configStyles.rowContainer)}>
@@ -32,7 +48,7 @@ function Row({ action, config, columns, data, url }) {
       </Link>
       {ActionComponent ? (
         <Cell key={`${data.id}-actions`} className={classNames(styles.cell, configStyles.cell)}>
-          {ActionComponent ? <ActionComponent {...actionComponentProps} /> : null}
+          {ActionComponent ? <ActionComponent row={data} /> : null}
         </Cell>
       ) : null}
     </div>
