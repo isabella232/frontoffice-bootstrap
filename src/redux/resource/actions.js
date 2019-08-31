@@ -12,7 +12,7 @@ import Routes from '~constants/routes';
 import { formatPaging } from './utils';
 
 export const actions = createTypes(
-  completeTypes(['GET_RESOURCE', 'GET_RESOURCE_DETAIL', 'CREATE_RESOURCE'], []),
+  completeTypes(['GET_RESOURCE', 'GET_RESOURCE_DETAIL', 'DELETE_RESOURCE', 'EDIT_RESOURCE'], []),
   '@@RESOURCE'
 );
 
@@ -39,6 +39,26 @@ export const actionCreators = {
   createResource: data => ({
     type: actions.CREATE_RESOURCE,
     service: ConectorService.createResource,
+    payload: data,
+    injections: [
+      withSuccess(dispatch => {
+        dispatch(push(Routes.HOME));
+      })
+    ]
+  }),
+  deleteResource: data => ({
+    type: actions.DELETE_RESOURCE,
+    service: ConectorService.deleteResource,
+    payload: data,
+    injections: [
+      withSuccess(dispatch => {
+        dispatch(push(Routes.HOME));
+      })
+    ]
+  }),
+  editResource: data => ({
+    type: actions.EDIT_RESOURCE,
+    service: ConectorService.editResource,
     payload: data,
     injections: [
       withSuccess(dispatch => {

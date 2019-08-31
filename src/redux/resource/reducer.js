@@ -8,7 +8,13 @@ const initialState = {
 };
 
 const reducerDescription = {
-  primaryActions: [actions.GET_RESOURCE, actions.CREATE_RESOURCE, actions.GET_RESOURCE_DETAIL],
+  primaryActions: [
+    actions.GET_RESOURCE,
+    actions.GET_RESOURCE_DETAIL,
+    actions.CREATE_RESOURCE,
+    actions.DELETE_RESOURCE,
+    actions.EDIT_RESOURCE
+  ],
   override: {}
 };
 
