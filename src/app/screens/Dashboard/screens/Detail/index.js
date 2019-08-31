@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 
 import structure from '~constants/structure';
 
+import Routes from '~constants/routes';
+
 import leftArrow from '~assets/left-arrow.svg';
 
 import { actionCreators as modalActions } from '~redux/modal/actions';
 
 import { actionCreators as resourceActions } from '~redux/resource/actions';
+
+import { push } from 'connected-react-router';
 
 import styles from './styles.module.scss';
 
@@ -28,6 +32,10 @@ class Detail extends Component {
     });
   }
 
+  goBack = () => {
+    this.props.dispatch(push(Routes.HOME));
+  };
+
   handleCancel = () => {
     this.props.dispatch(modalActions.toggleCancelModal());
   };
@@ -41,7 +49,7 @@ class Detail extends Component {
       <div className={styles.container}>
         <div className="row full-width space-between middle">
           <div className="row">
-            <button onClick={this.handleCancel} type="button">
+            <button onClick={this.goBack} type="button">
               <img src={leftArrow} height="20px" />
             </button>
             <h1 className="title m-bottom-1 m-left-1 capitalize">
