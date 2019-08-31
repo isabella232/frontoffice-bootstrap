@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 class DeleteModal extends Component {
   handleClose = () => {
     const attributes = window.location.pathname.split('/').slice(1);
-    this.props.deleteResource({ resource: attributes[0], id: attributes[1] });
+    this.props.deleteResource({ resource: attributes[0], id: this.props.deleteId || attributes[1] });
     this.props.toggleDeletemodal();
   };
 
@@ -46,9 +46,13 @@ const mapDispatchToProps = dispatch => ({
   deleteResource: params => dispatch(resourceActions.deleteResource(params))
 });
 
+const mapStateToProps = state => ({
+  deleteId: state.modal.deleteId
+});
+
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(DeleteModal)
 );
