@@ -5,8 +5,7 @@ import styles from './styles.module.scss';
 import ArrowAction from './components/ArrowAction';
 
 export const DEFAULT_CURRENT_PAGE = 1;
-export const DEFAULT_TOTAL_PAGES = 5;
-export const DEFAULT_MAX_PAGES = 5;
+export const DEFAULT_TOTAL_PAGES = 1;
 export const NEXT = 'next';
 export const PREVIOUS = 'previous';
 

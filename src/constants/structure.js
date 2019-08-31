@@ -5,7 +5,13 @@ export default [
     attributes: [
       {
         name: 'name',
-        type: 'text'
+        type: 'text',
+        placeholder: 'Sport name'
+      },
+      {
+        name: 'location',
+        type: 'text',
+        placeholder: 'sport location'
       }
     ]
   },
@@ -15,7 +21,8 @@ export default [
     attributes: [
       {
         name: 'name',
-        type: 'text'
+        type: 'text',
+        placeholder: 'Match name'
       }
     ]
   }

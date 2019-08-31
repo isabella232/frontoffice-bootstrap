@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import logo from './assets/logo.svg';
 import styles from './styles.module.scss';
 
 import structure from '~constants/structure';
+
+import Paginator from '~components/Paginator';
+
+import Table from '~components/Table';
 
 class List extends Component {
   state = {
@@ -16,16 +20,17 @@ class List extends Component {
     });
   }
 
+  // TODO: use endpoint to get data and format headers before sending to Table component
+
   render() {
     return (
       <div className={styles.container}>
-        <header className={styles.appHeader}>
-          <img src={logo} className={styles.appLogo} alt="logo" />
-          <p className={styles.text}>{this.state.data.name} list</p>
-          <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
+        <div className="row space-between middle">
+          <h1 className="title">{this.state.data.name}</h1>
+          <Link to={`${this.props.match.path}/new`} className={`${styles.link} button-primary`}>
+            Crear
+          </Link>
+        </div>
       </div>
     );
   }

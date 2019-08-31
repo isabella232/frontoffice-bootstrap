@@ -18,15 +18,30 @@
   padding: 10px 20px;
   color: $white;
   border-radius: 4px;
+  transition: background 0.3s ease-in-out;
 
   &:hover {
     background: darken($primary-color, 5%);
   }
 }
 
+.button-secondary {
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  height: 40px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: border-color, color 0.3s ease-in-out;
+
+  &:hover {
+    border-color: darken($primary-color, 5%);
+    color: darken($primary-color, 5%);
+  }
+}
+
 .title1 {
   font-size: 32px;
   line-height: 40px;
-  font-weight: 700;
+  font-weight: 400;
   color: desaturate(darken($primary-color, 25%), 50%);
 }
