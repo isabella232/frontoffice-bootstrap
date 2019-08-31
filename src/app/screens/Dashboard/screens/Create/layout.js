@@ -6,7 +6,12 @@ import styles from './styles.module.scss';
 function CreationLayout({ modelData, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
-      <h1 className="title m-bottom-1">{modelData.name} Creation</h1>
+      <div className="row full-width space-between">
+        <h1 className="title m-bottom-1">{modelData.name} Creation</h1>
+        <button type="button" className="m-right-1">
+          Borrar
+        </button>
+      </div>
       {modelData.attributes &&
         modelData.attributes.map(attribute => (
           <Field
