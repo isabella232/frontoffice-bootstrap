@@ -28,13 +28,21 @@
 .header-cell {
   text-transform: uppercase;
   padding: 10px;
-  color: $white;
+  color: lighten($primary-color, 10%);
+  min-width: 100px;
 }
 
 .row-container {
   cursor: pointer;
+  display: flex;
+  border-bottom: 1px solid $gray-1;
 }
 
 .title {
   text-transform: uppercase;
+}
+
+.cell {
+  padding: 10px;
+  min-width: 100px;
 }

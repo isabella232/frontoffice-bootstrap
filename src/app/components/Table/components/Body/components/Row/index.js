@@ -24,7 +24,7 @@ function Row({ action, config, columns, data, url }) {
           const { component: CellComponent, parser: dataParser } = columns[columnName].cell || {};
           const cellData = dataParser?.(data[columnName]) || data[columnName] || null;
           return cellData ? (
-            <Cell key={`${data.id}-${columnName}`} className={classNames(styles.cell, configStyles.cell)}>
+            <Cell key={`${data.id}-${columnName}`} className={classNames(styles.cell, configStyles.cell, `item-${columns[columnName].columnProportion}`)}>
               {CellComponent ? <CellComponent {...cellData} /> : cellData}
             </Cell>
           ) : null;
