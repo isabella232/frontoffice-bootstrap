@@ -15,7 +15,6 @@ class Edit extends Component {
   };
 
   componentDidMount() {
-    debugger;
     if (!Object.keys(this.props.resource).length) {
       this.props.dispatch(
         resourceActions.getResourceDetail({
