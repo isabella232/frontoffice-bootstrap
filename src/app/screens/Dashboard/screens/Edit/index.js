@@ -15,6 +15,15 @@ class Edit extends Component {
   };
 
   componentDidMount() {
+    debugger;
+    if (!Object.keys(this.props.resource).length) {
+      this.props.dispatch(
+        resourceActions.getResourceDetail({
+          resource: this.props.match.path.slice(1).split('/')[0],
+          id: this.props.match.params.id
+        })
+      );
+    }
     this.setState({
       data: structure.find(model => this.props.match.path.slice(1).split('/')[0] === model.endpoint)
     });
@@ -38,7 +47,7 @@ class Edit extends Component {
   };
 
   render() {
-    return (
+    return Object.keys(this.props.resource).length ? (
       <EditContainer
         modelData={this.state.data}
         onSubmit={this.handleSubmit}
@@ -46,7 +55,7 @@ class Edit extends Component {
         handleCancel={this.onCancel}
         handleDelete={this.onDelete}
       />
-    );
+    ) : null;
   }
 }
 
