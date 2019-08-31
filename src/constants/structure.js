@@ -27,45 +27,6 @@ export default [
         }
       },
       {
-        name: 'name',
-        edit: true,
-        create: true,
-        component: InputLabel,
-        componentAttributes: {
-          label: 'name',
-          name: 'name',
-          inputId: 'name',
-          dataFor: 'name',
-          inputType: 'text'
-        }
-      },
-      {
-        name: 'name',
-        edit: true,
-        create: true,
-        component: InputLabel,
-        componentAttributes: {
-          label: 'name',
-          name: 'name',
-          inputId: 'name',
-          dataFor: 'name',
-          inputType: 'text'
-        }
-      },
-      {
-        name: 'name',
-        edit: true,
-        create: true,
-        component: InputLabel,
-        componentAttributes: {
-          label: 'name',
-          name: 'name',
-          inputId: 'name',
-          dataFor: 'name',
-          inputType: 'text'
-        }
-      },
-      {
         name: 'description',
         type: 'text',
         placeholder: 'Product description',

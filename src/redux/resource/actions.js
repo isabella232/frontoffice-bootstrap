@@ -6,7 +6,7 @@ import * as ConectorService from '~services/ConectorService';
 import Routes from '~constants/routes';
 
 export const actions = createTypes(
-  completeTypes(['GET_RESOURCE', 'CREATE_RESOURCE', 'DELETE_RESOURCE'], []),
+  completeTypes(['GET_RESOURCE', 'CREATE_RESOURCE', 'DELETE_RESOURCE', 'EDIT_RESOURCE'], []),
   '@@RESOURCE'
 );
 
@@ -30,6 +30,16 @@ export const actionCreators = {
   deleteResource: data => ({
     type: actions.DELETE_RESOURCE,
     service: ConectorService.deleteResource,
+    payload: data,
+    injections: [
+      withSuccess(dispatch => {
+        dispatch(push(Routes.HOME));
+      })
+    ]
+  }),
+  editResource: data => ({
+    type: actions.EDIT_RESOURCE,
+    service: ConectorService.editResource,
     payload: data,
     injections: [
       withSuccess(dispatch => {
