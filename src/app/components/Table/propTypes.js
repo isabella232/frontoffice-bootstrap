@@ -11,9 +11,7 @@ export const configType = shape({
 });
 
 export const columnType = shape({
-  id: number.isRequired,
-  key: string.isRequired,
-  title: string,
+  name: string,
   cell: shape({
     component: componentType,
     parser: func
