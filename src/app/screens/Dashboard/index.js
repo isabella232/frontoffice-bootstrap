@@ -12,6 +12,8 @@ import DeleteModal from '~components/DeleteModal';
 
 import Navbar from '~components/Navbar';
 
+import { push } from 'connected-react-router';
+
 import Routes from '../../../constants/routes';
 
 import styles from './styles.module.scss';
@@ -31,7 +33,11 @@ const GenericRouter = () =>
     </Switch>
   ));
 
-function Dashboard({ cancelModal, deleteModal }) {
+function Dashboard({ cancelModal, deleteModal, ...props }) {
+  if (window.location.pathname === Routes.HOME) {
+    props.dispatch(push(`/${structure[0].endpoint}`));
+  }
+
   return (
     <div className="row">
       <Sidebar />
