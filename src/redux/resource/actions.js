@@ -1,6 +1,8 @@
 import { createTypes, completeTypes, withSuccess, withPostSuccess } from 'redux-recompose';
 import { push } from 'connected-react-router';
 
+import { history } from '../store';
+
 import { defaultCamelcase } from '~serializer/defaultSerializer';
 
 import * as ConectorService from '~services/ConectorService';
@@ -54,8 +56,8 @@ export const actionCreators = {
     service: ConectorService.deleteResource,
     payload: data,
     injections: [
-      withSuccess(dispatch => {
-        dispatch(push(Routes.HOME));
+      withSuccess(() => {
+        history.goBack();
       })
     ]
   }),
