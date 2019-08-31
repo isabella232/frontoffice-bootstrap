@@ -26,7 +26,7 @@ const GenericRouter = () =>
     <Switch key={model.endpoint}>
       <Route exact path={`/${model.endpoint}`} component={List} />
       <Route exact path={`/${model.endpoint}/new`} component={Create} />
-      <Route path={`/${model.endpoint}/:id`} component={Detail} />
+      <Route exact path={`/${model.endpoint}/:id`} component={Detail} />
       <Route exact path={`/${model.endpoint}/:id/edit`} component={Edit} />
     </Switch>
   ));

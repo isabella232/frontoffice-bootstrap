@@ -1,26 +1,25 @@
 export default [
   {
-    name: 'sports',
-    endpoint: 'sports',
+    name: 'products',
+    endpoint: 'products',
     attributes: [
       {
         name: 'id',
         type: 'text',
-        placeholder: 'Sport name',
         edit: false,
         create: false
       },
       {
         name: 'name',
         type: 'text',
-        placeholder: 'Sport name',
+        placeholder: 'Product name',
         edit: true,
         create: true
       },
       {
-        name: 'location',
+        name: 'description',
         type: 'text',
-        placeholder: 'sport location',
+        placeholder: 'Product description',
         edit: true,
         create: true
       }

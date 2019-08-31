@@ -12,12 +12,12 @@ class Edit extends Component {
 
   componentDidMount() {
     this.setState({
-      data: structure.find(model => props.match.path.slice(1).split('/')[1] === model.endpoint)
+      data: structure.find(model => this.props.match.path.slice(1).split('/')[1] === model.endpoint)
     });
   }
 
   render() {
-    return (
+    return this.state.data ? (
       <>
         <header className={styles.appHeader}>
           <img src={logo} className={styles.appLogo} alt="logo" />
@@ -27,6 +27,8 @@ class Edit extends Component {
           </a>
         </header>
       </>
+    ) : (
+      <div />
     );
   }
 }
