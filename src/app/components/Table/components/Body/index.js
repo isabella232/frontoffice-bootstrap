@@ -12,9 +12,9 @@ function Body({ columns, config, title, rows, emptyBodyMessage }) {
   const { styles: configStyles = {} } = config;
 
   return (
-    <div className={classNames('grid', styles.bodyContent, configStyles.bodyContent)}>
+    <div className={classNames(styles.bodyContent, configStyles.bodyContent)}>
       {title && <h4 className={classNames('full-width', styles.title, configStyles.title)}>{title}</h4>}
-      <div className={classNames('grid', styles.rows, configStyles.rows)}>
+      <div className={classNames(styles.rows, configStyles.rows)}>
         {!!rows.length &&
           rows.map(row => (
             <Row

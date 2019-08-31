@@ -1,40 +1,38 @@
+@import 'src/scss/colors';
+
 .container {
-  grid-row-gap: 20px;
   padding: 30px 0;
   width: 100%;
 }
 
 .bodies {
-  grid-row-gap: 30px;
-  grid-template-rows: auto;
   min-height: 200px;
   overflow-y: auto;
+  background: $white;
+  border-radius: 4px;
 }
 
 .body-content {
   align-content: stretch;
   flex-grow: 1;
-  grid-row-gap: 20px;
-  grid-template-rows: min-content;
 }
 
 .rows {
   align-content: flex-start;
-  grid-row-gap: 10px;
 }
 
 .headers {
-  grid-auto-flow: column;
-  grid-template-columns: auto;
+
 }
 
 .header-cell {
   text-transform: uppercase;
+  padding: 10px;
+  color: $white;
 }
 
 .row-container {
   cursor: pointer;
-  grid-template-columns: auto;
 }
 
 .title {

@@ -11,7 +11,7 @@ class Paginator extends Component {
 
     return (
       !!totalPages && (
-        <div className={`${paginatorClassName} self-end row center full-width`}>
+        <div className={`${paginatorClassName} row center full-width`}>
           {PAGING_COMPONENTS.map(({ key, component: Action, className, text }) => (
             <Action
               key={key}

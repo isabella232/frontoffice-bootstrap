@@ -11,7 +11,7 @@ import styles from '~components/Table/styles.module.scss';
 function Headers({ config, headers }) {
   const { styles: configStyles = {} } = config;
   return (
-    <div className={classNames('grid', configStyles.headers)}>
+    <div className={classNames(configStyles.headers)}>
       {Object.keys(headers).map(columnName => (
         <Cell key={`${columnName}-header`} className={classNames(styles.headerCell, configStyles.headerCell)}>
           {headers[columnName].name}

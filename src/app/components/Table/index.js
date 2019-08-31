@@ -10,10 +10,10 @@ import { bodyType, configType, columnsType, emptyMessageType } from './propTypes
 function Table({ bodies, className, columns, config, error, errorMessage, loading }) {
   const { styles: configStyles = {} } = config;
   return (
-    <div className={`grid ${styles.container} ${className}`}>
+    <div className={`${styles.container} ${className} item-1 column`}>
       <Headers config={config} headers={columns} />
       {!loading && !error && (
-        <div className={classNames('grid', styles.bodies, configStyles.bodies)}>
+        <div className={classNames(styles.bodies, configStyles.bodies, "item-1")}>
           {bodies.map(section => (
             <Body
               columns={columns}
