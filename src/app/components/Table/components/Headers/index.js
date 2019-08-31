@@ -17,6 +17,7 @@ function Headers({ config, headers }) {
           {headers[columnName].name}
         </Cell>
       ))}
+      <Cell key="action-header" className={classNames(styles.actionHeader, styles.headerCell, configStyles.headerCell)}></Cell>
     </div>
   );
 }
