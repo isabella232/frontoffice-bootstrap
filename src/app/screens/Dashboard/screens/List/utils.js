@@ -4,6 +4,8 @@ import { stripObjectBasedOnKeyArray } from '~utils/general';
 
 import { formatBodies } from '~components/Table/utils';
 
+import Routes from '~constants/routes';
+
 import styles from './styles.module.scss';
 
 export const parseColumns = ({ columns, baseColumns }) =>
@@ -21,7 +23,7 @@ export const parseList = postulated => {
         const newRowBody = {
           id: row.id,
           data: row,
-          url: '#',
+          url: `${Routes.PRODUCTS}/${row.id}`,
           config: {
             styles: { rowLink: styles.rowLink }
           }
