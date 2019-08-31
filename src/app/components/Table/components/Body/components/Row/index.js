@@ -13,10 +13,10 @@ function Row({ action, config, columns, data, url }) {
   const { component: ActionComponent, props: actionComponentProps } = action;
   const { styles: configStyles = {} } = config;
   return (
-    <div className={classNames('grid', styles.rowContainer, configStyles.rowContainer)}>
+    <div className={classNames(styles.rowContainer, configStyles.rowContainer)}>
       <Link
         to={url}
-        className={classNames('grid middle', styles.rowLink, configStyles.rowLink, {
+        className={classNames('middle', styles.rowLink, configStyles.rowLink, {
           'm-right-2': ActionComponent
         })}
       >
@@ -24,7 +24,7 @@ function Row({ action, config, columns, data, url }) {
           const { component: CellComponent, parser: dataParser } = columns[columnName].cell || {};
           const cellData = dataParser?.(data[columnName]) || data[columnName] || null;
           return cellData ? (
-            <Cell key={`${data.id}-${columnName}`} className={classNames(styles.cell, configStyles.cell)}>
+            <Cell key={`${data.id}-${columnName}`} className={classNames(styles.cell, configStyles.cell, `item-${columns[columnName].columnProportion}`)}>
               {CellComponent ? <CellComponent {...cellData} /> : cellData}
             </Cell>
           ) : null;

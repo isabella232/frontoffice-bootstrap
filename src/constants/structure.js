@@ -9,7 +9,8 @@ export default [
         name: 'id',
         type: 'text',
         edit: false,
-        create: false
+        create: false,
+        columnProportion: 0
       },
       {
         name: 'name',
@@ -17,6 +18,7 @@ export default [
         placeholder: 'Product name',
         edit: true,
         create: true,
+        columnProportion: 1,
         component: InputLabel,
         componentAttributes: {
           label: 'name',
@@ -32,6 +34,7 @@ export default [
         placeholder: 'Product description',
         edit: true,
         create: true,
+        columnProportion: 3,
         component: InputLabel,
         componentAttributes: {
           label: 'description',
@@ -50,7 +53,15 @@ export default [
       {
         name: 'name',
         type: 'text',
-        placeholder: 'Match name'
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: 'text'
+        },
+        columnProportion: 1
       }
     ]
   }
