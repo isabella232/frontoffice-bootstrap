@@ -20,9 +20,29 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px $white inset !important;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+input,
+a,
+button,
+select,
+textarea {
+  font-weight: 300;
+}
+
 // stylelint-enable
 
 * {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
+
+
