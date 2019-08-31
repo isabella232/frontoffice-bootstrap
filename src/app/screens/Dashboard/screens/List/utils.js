@@ -13,15 +13,15 @@ export const parseColumns = ({ columns, baseColumns }) =>
     baseArray: baseColumns
   });
 
-export const parseList = postulated => {
+export const parseList = (list, endpoint) => {
   const bodies = formatBodies({
-    bodies: postulated,
+    bodies: list,
     options: {
       rowFormatter: row => {
         const newRowBody = {
           id: row.id,
           data: row,
-          url: '#',
+          url: `/${endpoint}/${row.id}`,
           config: {
             styles: { rowLink: styles.rowLink }
           }

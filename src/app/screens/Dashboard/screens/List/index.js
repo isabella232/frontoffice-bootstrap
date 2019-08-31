@@ -42,7 +42,7 @@ class List extends Component {
   render() {
     const { list, listError, loading, currentPage, totalPages, nextPage } = this.props;
     const columns = parseColumns({ columns: TABLE_HEADERS, baseColumns: BASE_COLUMNS });
-    const bodies = parseList(list);
+    const bodies = parseList(list, this.state?.data?.endpoint);
     return (
       <>
         <div className="row space-between middle form-header">
