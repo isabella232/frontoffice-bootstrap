@@ -14,6 +14,8 @@ import Navbar from '~components/Navbar';
 
 import Routes from '../../../constants/routes';
 
+import styles from './styles.module.scss';
+
 const List = lazy(() => import('./screens/List'));
 const Detail = lazy(() => import('./screens/Detail'));
 const Create = lazy(() => import('./screens/Create'));
@@ -37,11 +39,13 @@ function Dashboard({ cancelModal, deleteModal }) {
       <DeleteModal open={deleteModal} />
       <div className="column item-1">
         <Navbar />
-        <Switch>
-          <GenericRouter />
-          <Route exact path={Routes.HOME} component={List} />
-          <Route component={<Redirect to={Routes.HOME} />} />
-        </Switch>
+        <main className={`${styles.container} item-1`}>
+          <Switch>
+            <GenericRouter />
+            <Route exact path={Routes.HOME} component={List} />
+            <Route component={<Redirect to={Routes.HOME} />} />
+          </Switch>
+        </main>
       </div>
     </div>
   );
