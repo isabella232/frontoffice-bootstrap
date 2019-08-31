@@ -52,20 +52,32 @@ class List extends Component {
             {t('List:create')}
           </Link>
         </div>
-        <Table
-          bodies={bodies}
-          columns={columns}
-          error={listError}
-          errorMessage={t('Table:errorData')}
-          loading={loading}
-          config={{ styles: { headers: styles.headers } }}
-        />
-        <Paginator
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={this.handlePageChange}
-          nextPage={nextPage}
-        />
+        {
+          this.props.loading ? (
+            <div className="ball-triangle-path">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          ) : (
+            <>
+              <Table
+                bodies={bodies}
+                columns={columns}
+                error={listError}
+                errorMessage={t('Table:errorData')}
+                loading={loading}
+                config={{ styles: { headers: styles.headers } }}
+              />
+              <Paginator
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={this.handlePageChange}
+                nextPage={nextPage}
+              />
+            </>
+          )
+        }
       </>
     );
   }
