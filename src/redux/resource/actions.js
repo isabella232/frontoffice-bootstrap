@@ -1,8 +1,11 @@
-import { createTypes, completeTypes } from 'redux-recompose';
+import { createTypes, completeTypes, withSuccess } from 'redux-recompose';
+import { push } from 'connected-react-router';
 
 import * as ConectorService from '~services/ConectorService';
 
-export const actions = createTypes(completeTypes(['GET_RESOURCE'], []), '@@RESOURCE');
+import Routes from '~constants/routes';
+
+export const actions = createTypes(completeTypes(['GET_RESOURCE', 'CREATE_RESOURCE'], []), '@@RESOURCE');
 
 export const actionCreators = {
   getResource: data => ({
@@ -10,5 +13,15 @@ export const actionCreators = {
     service: ConectorService.getDetail,
     payload: data,
     target: 'resource'
+  }),
+  createResource: data => ({
+    type: actions.CREATE_RESOURCE,
+    service: ConectorService.createResource,
+    payload: data,
+    injections: [
+      withSuccess(dispatch => {
+        dispatch(push(Routes.HOME));
+      })
+    ]
   })
 };

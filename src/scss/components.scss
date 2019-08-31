@@ -32,7 +32,7 @@
   border: 1px solid $primary-color;
   color: $primary-color;
   height: 40px;
-  padding: 10px 20px;
+  padding: 10px 40px;
   border-radius: 4px;
   transition: border-color, color 0.3s ease-in-out;
 
@@ -53,4 +53,39 @@
   font-size: 32px;
   line-height: 40px;
   color: desaturate(darken($primary-color, 25%), 50%);
+}
+
+.form-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray-1;
+  margin-bottom: 20px;
+}
+
+.back-button{
+  height: 30px;
+  padding-right: 10px;
+  border-right: 1px solid desaturate(darken($primary-color, 25%), 50%);
+
+  .back-ic {
+    height: 30px;
+  }
+}
+
+.form-body {
+  margin-bottom: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  flex-basis: calc(50% - 10px);
+  max-width: 400px;
+  width: 100%;
+  min-width: 300px;
+  margin-right: 20px;
+}
+
+.form-actions {
+  padding-top: 20px;
+  border-top: 1px solid $gray-1;
 }

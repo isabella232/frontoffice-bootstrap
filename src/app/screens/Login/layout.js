@@ -5,7 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 
 import logo from '~assets/logo-black.png';
 
-import InputLabel from '../../components/InputLabel';
+import InputLabel from '~components/InputLabel';
 
 import { FIELDS, LOGIN_FORM_NAME } from './constants';
 import styles from './styles.module.scss';
@@ -24,7 +24,6 @@ function Login({ handleSubmit }) {
           dataFor={FIELDS.user}
           inputType="text"
           inputClassName="m-bottom-3"
-          placeholder={t('Login:emailPlaceholder')}
         />
         <Field
           component={InputLabel}
@@ -34,7 +33,6 @@ function Login({ handleSubmit }) {
           dataFor={FIELDS.password}
           inputType="password"
           inputClassName="m-bottom-6"
-          placeholder={t('Login:passwordPlaceholder')}
         />
         <button type="submit" className="m-bottom-1 button-primary">
           {t('Login:enter')}

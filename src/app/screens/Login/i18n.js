@@ -6,7 +6,5 @@ i18next.addResources('es', 'Login', {
   enter: 'Ingresar',
   forgotPassword: 'Olvidé mi contraseña',
   email: 'E-mail',
-  emailPlaceholder: 'Ej: nombre@empresa.com',
   password: 'Contraseña',
-  passwordPlaceholder: 'Ingrese su contraseña'
 });

@@ -1,3 +1,5 @@
+import InputLabel from '~components/InputLabel';
+
 export default [
   {
     name: 'products',
@@ -14,14 +16,69 @@ export default [
         type: 'text',
         placeholder: 'Product name',
         edit: true,
-        create: true
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: 'text'
+        }
+      },
+      {
+        name: 'name',
+        edit: true,
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: 'text'
+        }
+      },
+      {
+        name: 'name',
+        edit: true,
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: 'text'
+        }
+      },
+      {
+        name: 'name',
+        edit: true,
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'name',
+          name: 'name',
+          inputId: 'name',
+          dataFor: 'name',
+          inputType: 'text'
+        }
       },
       {
         name: 'description',
         type: 'text',
         placeholder: 'Product description',
         edit: true,
-        create: true
+        create: true,
+        component: InputLabel,
+        componentAttributes: {
+          label: 'description',
+          name: 'description',
+          inputId: 'description',
+          dataFor: 'description',
+          inputType: 'text'
+        }
       }
     ]
   },
