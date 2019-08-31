@@ -14,8 +14,7 @@ const reducerDescription = {
     actions.CREATE_RESOURCE,
     actions.DELETE_RESOURCE,
     actions.EDIT_RESOURCE
-  ],
-  override: {}
+  ]
 };
 
 export default createReducer(initialState, completeReducer(reducerDescription));
