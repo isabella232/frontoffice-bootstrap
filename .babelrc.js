@@ -13,7 +13,8 @@ module.exports = {
           "~redux": "./src/redux",
           "~services": "./src/services",
           '~assets': './src/app/assets',
-          "~utils": "./src/utils"
+          "~utils": "./src/utils",
+          "~serializer": "./src/serializer"
         }
       }
     ]

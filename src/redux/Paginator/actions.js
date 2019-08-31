@@ -4,7 +4,7 @@ import { CURRENT_PAGE } from './constants';
 
 export const actions = createTypes(['SET_CURRENT_PAGE', 'SET_PAGING_OPTIONS'], '@@PAGINATOR');
 
-const actionCreators = {
+export const actionCreators = {
   setCurrentPage: currentPage => ({
     type: actions.SET_CURRENT_PAGE,
     target: CURRENT_PAGE,
@@ -15,5 +15,3 @@ const actionCreators = {
     payload: paging
   })
 };
-
-export default actionCreators;

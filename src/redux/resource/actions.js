@@ -1,17 +1,39 @@
-import { createTypes, completeTypes, withSuccess } from 'redux-recompose';
+import { createTypes, completeTypes, withSuccess, withPostSuccess } from 'redux-recompose';
 import { push } from 'connected-react-router';
+
+import { defaultCamelcase } from '~serializer/defaultSerializer';
 
 import * as ConectorService from '~services/ConectorService';
 
+import { actionCreators as paginatorActions } from '~redux/Paginator/actions';
+
 import Routes from '~constants/routes';
 
+import { formatPaging } from './utils';
+
 export const actions = createTypes(
-  completeTypes(['GET_RESOURCE', 'CREATE_RESOURCE', 'DELETE_RESOURCE', 'EDIT_RESOURCE'], []),
+  completeTypes(
+    ['GET_RESOURCE', 'GET_RESOURCE_DETAIL', 'DELETE_RESOURCE', 'EDIT_RESOURCE', 'CREATE_RESOURCE'],
+    []
+  ),
   '@@RESOURCE'
 );
 
 export const actionCreators = {
-  getResource: data => ({
+  getResource: (resource, page, limit) => ({
+    type: actions.GET_RESOURCE,
+    target: 'page',
+    service: ConectorService.getList,
+    payload: { resource, page, limit },
+    successSelector: response => defaultCamelcase.serialize(response.data.page),
+    failureSelector: response => response.data,
+    injections: [
+      withPostSuccess((dispatch, response) => {
+        dispatch(paginatorActions.setPagingOptions(formatPaging(response.data)));
+      })
+    ]
+  }),
+  getResourceDetail: data => ({
     type: actions.GET_RESOURCE,
     service: ConectorService.getDetail,
     payload: data,
