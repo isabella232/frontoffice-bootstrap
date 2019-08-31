@@ -4,14 +4,25 @@ export default [
     endpoint: 'sports',
     attributes: [
       {
+        name: 'id',
+        type: 'text',
+        placeholder: 'Sport name',
+        edit: false,
+        create: false
+      },
+      {
         name: 'name',
         type: 'text',
-        placeholder: 'Sport name'
+        placeholder: 'Sport name',
+        edit: true,
+        create: true
       },
       {
         name: 'location',
         type: 'text',
-        placeholder: 'sport location'
+        placeholder: 'sport location',
+        edit: true,
+        create: true
       }
     ]
   },
