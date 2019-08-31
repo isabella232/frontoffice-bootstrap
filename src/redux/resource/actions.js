@@ -1,5 +1,7 @@
 import { createTypes, completeTypes, withSuccess, withPostSuccess } from 'redux-recompose';
 import { push } from 'connected-react-router';
+import { toast } from 'react-toastify';
+import { t } from 'i18next';
 
 import { history } from '../store';
 
@@ -48,6 +50,7 @@ export const actionCreators = {
     injections: [
       withSuccess(dispatch => {
         dispatch(push(Routes.HOME));
+        toast(t('List:created'));
       })
     ]
   }),
@@ -58,6 +61,7 @@ export const actionCreators = {
     injections: [
       withSuccess(() => {
         history.goBack();
+        toast(t('List:deleted'));
       })
     ]
   }),
@@ -68,6 +72,7 @@ export const actionCreators = {
     injections: [
       withSuccess(dispatch => {
         dispatch(push(Routes.HOME));
+        toast(t('List:deleted'));
       })
     ]
   })
