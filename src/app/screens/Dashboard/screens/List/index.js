@@ -16,8 +16,8 @@ import Paginator from '~components/Paginator';
 
 import Table from '~components/Table';
 
-import { TABLE_HEADERS, BASE_COLUMNS, DEFAULT_LIMIT } from './constants';
-import { parseColumns, parseList } from './utils';
+import { TABLE_HEADERS, DEFAULT_LIMIT } from './constants';
+import { parseColumns, parseList, getVisibleColumns } from './utils';
 
 class List extends Component {
   state = {
@@ -32,7 +32,6 @@ class List extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.data !== this.state.data) {
-      // TODO: send  current page
       this.props.getResource(this.state.data.endpoint, this.props.currentPage, DEFAULT_LIMIT);
     }
   }
@@ -41,8 +40,10 @@ class List extends Component {
 
   render() {
     const { list, listError, loading, currentPage, totalPages, nextPage } = this.props;
-    const columns = parseColumns({ columns: TABLE_HEADERS, baseColumns: BASE_COLUMNS });
-    const bodies = parseList(list, this.state?.data?.endpoint);
+    const { endpoint, attributes } = this.state?.data;
+
+    const columns = parseColumns({ columns: TABLE_HEADERS, baseColumns: getVisibleColumns(attributes) });
+    const bodies = parseList(list, endpoint);
     return (
       <>
         <div className="row space-between middle form-header">
