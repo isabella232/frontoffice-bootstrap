@@ -23,15 +23,17 @@ function CreationLayout({ modelData, handleSubmit, handleCancel, handleDelete })
         </button>
       </div>
       {modelData.attributes &&
-        modelData.attributes.map(attribute => (
-          <Field
-            key={attribute.name}
-            className="input"
-            component="input"
-            placeholder={attribute.name}
-            {...attribute}
-          />
-        ))}
+        modelData.attributes
+          .filter(attribute => attribute.create)
+          .map(attribute => (
+            <Field
+              key={attribute.name}
+              className="input"
+              component="input"
+              placeholder={attribute.name}
+              {...attribute}
+            />
+          ))}
       <div className="full-width row end">
         <button type="button" className="m-right-1 m-top-1 button-secondary" onClick={handleCancel}>
           {t('Create:cancel')}
