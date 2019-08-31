@@ -46,36 +46,34 @@ class Detail extends Component {
 
   render() {
     return (
-      <div className={styles.container}>
-        <div className="row full-width space-between middle">
-          <div className="row">
-            <button onClick={this.goBack} type="button">
-              <img src={leftArrow} height="20px" />
-            </button>
-            <h1 className="title m-bottom-1 m-left-1 capitalize">
-              {t('Detail:resourceDetail', { resource: this.state.data.name })}
-            </h1>
-          </div>
-          <div>
-            <button
-              type="button"
-              className="m-right-1 button-secondary m-bottom-1"
-              onClick={this.handleDelete}
-            >
-              {t('Detail:delete')}
-            </button>
-            <Link to={`${this.props.match.url}/edit`} className="m-right-1 button-primary m-bottom-1">
-              {t('Detail:edit')}
-            </Link>
-          </div>
+      <>
+        <div className="row middle form-header">
+          <button onClick={this.goBack} type="button" className="back-button m-right-2">
+            <img src={leftArrow} className="back-ic" />
+          </button>
+          <h1 className="title2 capitalize m-right-auto">
+            {t('Detail:resourceDetail', { resource: this.state.data.name })}
+          </h1>
+          <button
+            type="button"
+            className="m-right-2 button-secondary m-bottom-1"
+            onClick={this.handleDelete}
+          >
+            {t('Detail:delete')}
+          </button>
+          <Link to={`${this.props.match.url}/edit`} className="m-right-1 button-primary m-bottom-1">
+            {t('Detail:edit')}
+          </Link>
         </div>
-        {this.state.data.attributes?.map(attribute => (
-          <div className="row" key={attribute.name}>
-            <span className="bold m-right-1">{attribute.name}:</span>
-            <span>{this.props.resource[attribute.name]}</span>
-          </div>
-        ))}
-      </div>
+        <div class={`column ${styles.detailBody}`}>
+          {this.state.data.attributes?.map(attribute => (
+            <div className={`row ${styles.detailRow}`} key={attribute.name}>
+              <p className={`bold m-right-2 capitalize ${styles.detailFieldKey}`}>{attribute.name}:</p>
+              <p className={styles.detailFieldValue}>{this.props.resource[attribute.name]}</p>
+            </div>
+          ))}
+        </div>
+      </>
     );
   }
 }
