@@ -16,8 +16,8 @@ import Paginator from '~components/Paginator';
 
 import Table from '~components/Table';
 
-import { TABLE_HEADERS, DEFAULT_LIMIT } from './constants';
-import { parseColumns, parseList, getVisibleColumns } from './utils';
+import { DEFAULT_LIMIT } from './constants';
+import { parseList, getColumns } from './utils';
 
 class List extends Component {
   state = {
@@ -42,7 +42,7 @@ class List extends Component {
     const { list, listError, loading, currentPage, totalPages, nextPage } = this.props;
     const { endpoint, attributes } = this.state?.data;
 
-    const columns = parseColumns({ columns: TABLE_HEADERS, baseColumns: getVisibleColumns(attributes) });
+    const columns = getColumns(attributes);
     const bodies = parseList(list, endpoint);
     return (
       <>
@@ -52,32 +52,30 @@ class List extends Component {
             {t('List:create')}
           </Link>
         </div>
-        {
-          this.props.loading ? (
-            <div className="ball-triangle-path">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          ) : (
-            <>
-              <Table
-                bodies={bodies}
-                columns={columns}
-                error={listError}
-                errorMessage={t('Table:errorData')}
-                loading={loading}
-                config={{ styles: { headers: styles.headers } }}
-              />
-              <Paginator
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={this.handlePageChange}
-                nextPage={nextPage}
-              />
-            </>
-          )
-        }
+        {this.props.loading ? (
+          <div className="ball-triangle-path">
+            <div />
+            <div />
+            <div />
+          </div>
+        ) : (
+          <>
+            <Table
+              bodies={bodies}
+              columns={columns}
+              error={listError}
+              errorMessage={t('Table:errorData')}
+              loading={loading}
+              config={{ styles: { headers: styles.headers } }}
+            />
+            <Paginator
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={this.handlePageChange}
+              nextPage={nextPage}
+            />
+          </>
+        )}
       </>
     );
   }

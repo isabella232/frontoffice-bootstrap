@@ -14,7 +14,7 @@ function Headers({ config, headers }) {
     <div className={classNames('grid', configStyles.headers)}>
       {Object.keys(headers).map(columnName => (
         <Cell key={`${columnName}-header`} className={classNames(styles.headerCell, configStyles.headerCell)}>
-          {headers[columnName].title}
+          {headers[columnName].name}
         </Cell>
       ))}
     </div>
