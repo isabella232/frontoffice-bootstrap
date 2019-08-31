@@ -25,7 +25,7 @@ function InputLabel({
         className={`input ${inputClassName}`}
         name={name}
         placeholder={placeholder}
-        autocomplete="new-password"
+        autoComplete="new-password"
         id={inputId}
         type={inputType}
         {...input}

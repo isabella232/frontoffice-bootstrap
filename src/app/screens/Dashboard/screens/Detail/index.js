@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { t } from 'i18next';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import ReactSVG from 'react-svg';
 
 import structure from '~constants/structure';
 
@@ -49,7 +50,9 @@ class Detail extends Component {
       <>
         <div className="row middle form-header">
           <button onClick={this.goBack} type="button" className="back-button m-right-2">
-            <img src={leftArrow} className="back-ic" />
+            <ReactSVG src={leftArrow}  beforeInjection={svg => {
+              svg.classList.add("back-ic")
+            }} />
           </button>
           <h1 className="title2 capitalize m-right-auto">
             {t('Detail:resourceDetail', { resource: this.state.data.name })}

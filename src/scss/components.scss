@@ -69,7 +69,7 @@
   border-right: 1px solid desaturate(darken($primary-color, 25%), 50%);
 
   .back-ic {
-    height: 30px;
+    height: 20px;
   }
 }
 
@@ -92,11 +92,23 @@
   border-top: 1px solid $gray-1;
 }
 
-.modal-close {
+.modal-close,
+.logout-icon,
+.back-ic {
   fill: $gray-2;
+  stroke-color: $gray-2;
+
+  g > * {
+    fill: $gray-2;
+    stroke-color: $gray-2;
+  }
 
   &:hover,
   &:focus {
     fill: $primary-color;
+
+    g > * {
+      fill: $primary-color;
+    }
   }
 }
