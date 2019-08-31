@@ -6,21 +6,21 @@
 }
 
 .page-button {
-  color: $dove-gray;
+  color: $gray-4;
   padding: 5px;
   position: relative;
 
   &:hover {
-    color: $tundora;
+    color: desaturate(darken($primary-color, 25%), 40%);
     font-weight: 600;
   }
 
   &.active-page {
-    color: $tundora;
+    color: desaturate(darken($primary-color, 25%), 40%);
     font-weight: 600;
 
     &::after {
-      background-color: $tundora;
+      background-color: desaturate(darken($primary-color, 25%), 40%);
       border-radius: 8px;
       bottom: -2px;
       content: '';
