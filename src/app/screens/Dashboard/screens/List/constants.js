@@ -1,13 +1,3 @@
-export const BASE_COLUMNS = [
-  'id',
-  'name',
-  'description',
-  'availableOn',
-  'permalink',
-  'metaDescription',
-  'metaKeywords'
-];
-
 // TODO: use translations
 
 export const TABLE_HEADERS = {
